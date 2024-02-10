@@ -47,7 +47,7 @@ export const CourseCard = ({
             <div className="flex items-center gap-x-1 text-slate-500">
               <IconBadge size="sm" icon={BookOpen} />
               <span>
-                {chaptersLength} {chaptersLength === 1 ? "Chapter" : "Chapters"}
+                {chaptersLength} {chaptersLength === 1 ? "Capitulo" : "Capitulos"}
               </span>
             </div>
           </div>
@@ -59,7 +59,7 @@ export const CourseCard = ({
             />
           ) : (
             <p className="text-md md:text-sm font-medium text-slate-700">
-              {formatPrice(price)}
+              {price === 0 ? "Free" : formatPrice(price)}
             </p>
           )}
         </div>

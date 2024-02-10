@@ -1,7 +1,7 @@
 "use client";
 
 import axios from "axios";
-import MuxPlayer from "@mux/mux-player-react";
+
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -18,6 +18,7 @@ interface VideoPlayerProps {
   isLocked: boolean;
   completeOnEnd: boolean;
   title: string;
+  videoUrl: string;
 };
 
 export const VideoPlayer = ({
@@ -28,6 +29,7 @@ export const VideoPlayer = ({
   isLocked,
   completeOnEnd,
   title,
+  videoUrl,
 }: VideoPlayerProps) => {
   const [isReady, setIsReady] = useState(false);
   const router = useRouter();
@@ -44,7 +46,7 @@ export const VideoPlayer = ({
           confetti.onOpen();
         }
 
-        toast.success("Progress updated");
+        toast.success("Progreso actualizado");
         router.refresh();
 
         if (nextChapterId) {
@@ -52,37 +54,16 @@ export const VideoPlayer = ({
         }
       }
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Ups! Algo salió mal");
     }
   }
 
   return (
     <div className="relative aspect-video">
-      {!isReady && !isLocked && (
+      
         <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
-          <Loader2 className="h-8 w-8 animate-spin text-secondary" />
+          <iframe width="100%" height="100%" src={videoUrl} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
         </div>
-      )}
-      {isLocked && (
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-800 flex-col gap-y-2 text-secondary">
-          <Lock className="h-8 w-8" />
-          <p className="text-sm">
-            This chapter is locked
-          </p>
-        </div>
-      )}
-      {!isLocked && (
-        <MuxPlayer
-          title={title}
-          className={cn(
-            !isReady && "hidden"
-          )}
-          onCanPlay={() => setIsReady(true)}
-          onEnded={onEnd}
-          autoPlay
-          playbackId={playbackId}
-        />
-      )}
     </div>
   )
 }

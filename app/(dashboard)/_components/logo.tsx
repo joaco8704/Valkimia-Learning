@@ -5,7 +5,7 @@ export const Logo = () => {
         <Image height={130}
         width={130}
         alt="logo"
-        src="/Logo.svg"
+        src="/valkimia-logo.png"
         />
 
     );

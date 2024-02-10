@@ -74,7 +74,7 @@ export const columns: ColumnDef<Course>[] = [
           "bg-slate-500",
           isPublished && "bg-sky-700"
         )}>
-          {isPublished ? "Published" : "Draft"}
+          {isPublished ? "Publicado" : "Borrador"}
         </Badge>
       )
     }

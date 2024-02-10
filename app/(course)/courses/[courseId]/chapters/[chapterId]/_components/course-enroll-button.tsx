@@ -38,8 +38,9 @@ export const CourseEnrollButton = ({
       disabled={isLoading}
       size="sm"
       className="w-full md:w-auto"
+      variant="cta"
     >
-      Enroll for {formatPrice(price)}
+      {price === 0 ? "Comenzar curso" : `Comprar curso ${formatPrice(price)}`}
     </Button>
   )
 }

@@ -67,7 +67,8 @@ const ChapterIdPage = async ({
             nextChapterId={nextChapter?.id}
             playbackId={muxData?.playbackId!}
             isLocked={isLocked}
-            completeOnEnd={completeOnEnd}
+            completeOnEnd={completeOnEnd} 
+            videoUrl={chapter.videoUrl === "" ? "" : chapter.videoUrl || ""}
           />
         </div>
         <div>

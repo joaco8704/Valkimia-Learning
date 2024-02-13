@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+
 import { redirect } from "next/navigation";
 
 import { db } from "@/lib/db";
@@ -7,6 +7,7 @@ import { getCourses } from "@/actions/get-courses";
 import { CoursesList } from "@/components/courses-list";
 
 import { Categories } from "./_components/categories";
+import { auth } from "@clerk/nextjs";
 
 interface SearchPageProps {
   searchParams: {

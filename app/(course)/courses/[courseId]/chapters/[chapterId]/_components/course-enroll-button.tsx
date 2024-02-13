@@ -24,7 +24,7 @@ export const CourseEnrollButton = ({
 
       const response = await axios.post(`/api/courses/${courseId}/checkout`)
 
-      window.location.assign(response.data.url);
+      window.location.reload();
     } catch {
       toast.error("Something went wrong");
     } finally {
@@ -40,7 +40,7 @@ export const CourseEnrollButton = ({
       className="w-full md:w-auto"
       variant="cta"
     >
-      {price === 0 ? "Comenzar curso" : `Comprar curso ${formatPrice(price)}`}
+      {price === 0 || price === null ? "Comenzar curso" : `Comprar curso ${formatPrice(price)}`}
     </Button>
   )
 }

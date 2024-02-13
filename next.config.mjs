@@ -8,7 +8,14 @@ const nextConfig = {
           port: '',
           pathname: '',
         },
+        {
+          protocol: 'https',
+          hostname: 'training.genexus.com',
+          port: '',
+          pathname: '',
+        },
       ],
+        domains: ['*'],
     }
   }
   

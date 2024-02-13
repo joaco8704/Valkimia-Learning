@@ -17,7 +17,7 @@ jobs:
         run: npm install
 
       - name: Login to Google Cloud
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@v3
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud
         with:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           project_id: valkimialearning
